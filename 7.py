@@ -92,3 +92,49 @@ best_move = AI(board, 'O')
 print(best_move)
 
 print(board)
+
+
+# How to proceed
+
+# Step 1: Create a 3x3 board (list of lists) filled with spaces
+# Hint: Use a list comprehension or manually write it out.
+# Example idea: [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
+board = ...
+
+# Step 2: Choose symbols for human and AI
+# (You can decide or ask the player!)
+# Example idea: human = 'O', ai = 'X'
+human = ...
+ai = ...
+
+# Step 3: Start a game loop
+# Hint: Use `while True:` to keep the game running until someone wins or it’s a draw.
+while True:
+    # 3a. Show the current board
+    # Call print_board(board)
+    ...
+
+    # 3b. Ask the human for a move
+    # - Ask for row and column numbers (0, 1, or 2)
+    # - Check that the chosen cell is empty (' ')
+    # - Place their symbol on the board
+    # Hint: Use input(), int(), and simple if-checks
+    ...
+
+    # 3c. Check if the human won or if it’s a draw
+    # - Call check_winner(board)
+    # - If it returns something other than None, show the board, print the result, and break out of the loop
+    ...
+
+    # 3d. Let the AI play
+    # - Use AI(board, ai) to get the best (row, col)
+    # - Place the AI’s symbol on the board
+    # - Print what move the AI made
+    ...
+
+    # 3e. Check if the AI won or if it’s a draw (same as above)
+    ...
+
+# Optional Step 4:
+# After the game ends, you can ask:
+# “Play again?” and reset the board if the player says yes.
