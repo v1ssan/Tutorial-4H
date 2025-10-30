@@ -1,10 +1,10 @@
 '''
-
-Last time, you implemented the functions:
+Last time, you implemented the functions: (if you hadn't, these functions will be given to you)
 - print_board()
 - check_winner()
 
-Today, you will use these functions to create an unbeatable Tic Tac Toe AI that plays against a human player.
+Today, you will USE these functions to create an unbeatable Tic Tac Toe AI that plays against a human player.
+You only have to write the main loop for the game. Make use of the already given functions.
 
 Your goal:
 1. Display the Tic Tac Toe board.
@@ -16,7 +16,10 @@ The function AI(board, player) is already provided.
 - It takes the current board and the AI's symbol ('X' or 'O') as input.
 - It returns the best move for the AI to play.
 Your task is to integrate this function into your game loop.
+
 '''
+
+# Use this function to get the best move when it's the AI's turn to play
 def AI(board, player):
     # Don't worry to much about the code here. It's just a bunch of maths
     # to make the AI work
@@ -80,6 +83,41 @@ def AI(board, player):
     return best_move
 
 
+# Use this function to print the board
+def print_board(board):
+  for row in board:
+    a, b, c = row
+    print(a,b,c, sep=' | ')
+
+
+# Use this function to check if we have winner
+# For example, it returns 'X' if X won
+# If there is no winner, it returns None.
+def check_winner(board):
+    def check_row(board):
+        for row in board:
+            if row[0] == row[1] == row[2] != ' ':
+                return row[0]
+    def check_column(board):
+        for n in range(len(board)):
+            if board[0][n] == board[1][n] == board[2][n] != ' ':
+                return board[0][n]
+    def check_diagonal(board):
+        if board[0][0] == board[1][1] == board[2][2] != ' ':
+            return board[0][0]
+        if board[0][2] == board[1][1] == board[2][0] != ' ':
+            return board[0][2]
+
+    r = check_row(board)
+    if r: return r
+
+    c = check_column(board)
+    if c: return c
+
+    d = check_diagonal(board)
+    if d: return d
+
+
 # example use of the AI
 
 board = [
@@ -90,8 +128,6 @@ board = [
 
 best_move = AI(board, 'O')
 print(best_move)
-
-print(board)
 
 
 # How to proceed
